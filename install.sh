@@ -1,4 +1,11 @@
 #!/bin/sh
 
-ln -s `pwd`/zshrc ~/.zshrc
-ln -s `pwd`/zshenv ~/.zshenv
+if [ -f ~/.zshrc ]; then
+  mv ~/.zshrc ~/.zshrc.bak
+  ln -s `pwd`/zshrc ~/.zshrc
+fi
+
+if [ -f ~/.zshenv ]; then
+  mv ~/.zshenv ~/.zshenv.bak
+  ln -s `pwd`/zshenv ~/.zshenv
+fi
